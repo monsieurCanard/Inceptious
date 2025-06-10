@@ -11,7 +11,7 @@
 #                                 	Alias                                      #
 ################################################################################
 
-DOCKER_COMPOSE_FILE = /srcs/docker-compose.yml
+DOCKER_COMPOSE_FILE = srcs/docker-compose.yml
 
 ################################################################################
 #                                   Colors                                     #
@@ -36,17 +36,17 @@ all: up
 #-d = detached, run containers in the background
 #--build = build images before starting containers
 up:
-		@docker compose -f $(DOCKER_COMPOSE_FILE) up -d --build
+		@docker-compose -f $(DOCKER_COMPOSE_FILE) up -d --build
 
 #stop containers and removes containers, networks, volumes
 #and images created by up
 down:
-		@docker compose -f $(DOCKER_COMPOSE_FILE) down
+		@docker-compose -f $(DOCKER_COMPOSE_FILE) down
 
 #stop running containers without removing them, can be started
 #again with docker compose start
 stop:
-		@docker compose -f $(DOCKER_COMPOSE_FILE) stop
+		@docker-compose -f $(DOCKER_COMPOSE_FILE) stop
 
 #remove all stopped containers
 clean:	down
